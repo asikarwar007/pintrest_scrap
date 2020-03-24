@@ -5,7 +5,7 @@ Now you can take the URL to any Pinterest board (or a CSV of a bunch of boards) 
 ## Requirements:
 
 - Python 3
-- Selenium (pip install selenium)
+- Selenium (`pip install selenium`)
 - [Chrome driver](https://sites.google.com/a/chromium.org/chromedriver/) ( Download and place in the directory) or Firefox: `brew install chromedriver`
 - aria2c (a command line download utility)
 	- Mac: `brew install aria2`
@@ -16,15 +16,14 @@ Now you can take the URL to any Pinterest board (or a CSV of a bunch of boards) 
 
 ## How to Run:
 
-- `mv ./config_sample.py ./config.py`
+- `mv ./config-sample.py ./config.py`
 
 - Add your username / password to config.py
 
 - Then use:
-	- `./scraper.py <search term | board url> <destination folder[optional]>`
+	- `python ./scraper.py <search term | board url> <destination folder[optional]> <search no_of_pages | board url>`
 - For example: 
-	- `./scraper.py "Persian cats" ./persian_cats`
-	- `./scraper.py https://pinterest.com/kuxbini/cute-pets/ ./persian_cats`
+	- `python ./scraper.py "building facade" ./building_facade 10`
 	
 ## Use in a script
 
@@ -33,10 +32,7 @@ import scraper as s
 ph = s.PinterestHelper(PINTEREST_USERNAME, PINTEREST_PASSWORD)
 
 # Returns an array of image urls
-images = ph.runme("Persian Cats")
-
-# Use a image board url instead
-images = ph.runme("https://pinterest.com/kuxbini/cute-pets/")
+images = ph.runme("building facade")
 ```
 
 
